@@ -37,7 +37,7 @@
     <div data-aos="zoom-in-left" class="flex-shrink-0 relative w-64 h-64">
       <div class="w-full h-full -z-10 rounded-[3rem] absolute -top-5 -left-5 bg-lightSecondary -rotate-12"></div>
       <div class="w-full h-full -z-10 rounded-[3rem] absolute top-5 left-5 border-4 border-lightAccent rotate-12"></div>
-      <img src="assets/my-photo.jpg" class="rounded-[3rem] shadow-lg shadow-[#00000060]" />
+      <img src="assets/my-photo.jpg" class="rounded-[3rem] shadow-lg shadow-[#00000060] bg-white" />
     </div>
   </div>
 
@@ -74,7 +74,8 @@
   <div class="w-full grid grid-cols-3 gap-8 px-16">
     <div *ngFor="let p of data.portfolios">
       <a [href]="p.link">
-        <img data-aos="zoom-in-up"
+        <img 
+          data-aos="zoom-in-up"
           class="rounded-3xl hover:shadow-[0px_0px_10px_5px_#434BD920] hover:scale-[101%] transition-all duration-500 ease-out"
           [src]="'assets/' + p.imgSrc" />
       </a>
@@ -96,7 +97,7 @@
 </section>
 
 <section id="contact" class="w-full flex flex-row px-32 items-center bg-slate-100">
-  <img data-aos="zoom-in-right" src="assets/my-photo.jpg" class="rounded-[3rem] w-64 h-64 shadow-lg shadow-[#00000060]" />
+  <img data-aos="zoom-in-right" src="assets/my-photo.jpg" class="rounded-[3rem] w-64 h-64 shadow-lg shadow-[#00000060] bg-white" />
   <div data-aos="fade-right" class="flex flex-col ml-16 space-y-8">
     <span class="text-3xl">
       Interested in me?
