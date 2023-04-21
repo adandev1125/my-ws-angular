@@ -1,0 +1,111 @@
+<div class="fixed top-0 w-full flex justify-between px-32 py-8 items-center bg-[#fffffff0] backdrop-blur-sm z-50">
+  <div class="font-extrabold items-end text-2xl uppercase tracking-wider">
+    <span class="text-lightAccent">{{data.firstName}}</span>
+    <span class="ml-4">{{data.lastName}}</span>
+  </div>
+  <nav class="flex flex-row space-x-8 uppercase text-lg">
+    <a class="link" href="#">Home</a>
+    <button class="link" (click)="scrollToSection('hero')">About me</button>
+    <button class="link" (click)="scrollToSection('portfolios')">Portfolios</button>
+    <button class="link" (click)="scrollToSection('services')">Services</button>
+    <button class="link" (click)="scrollToSection('contact')">Contact</button>
+  </nav>
+</div>
+
+<section id="hero" class="w-full h-[100vh] overflow-hidden relative !py-0">
+  <!-- Background Image -->
+  <div class="hero -z-20">
+    <div class="background move-background hero-image"></div>
+  </div>
+
+  <!-- Center Text -->
+  <div class="move-background center w-full flex items-center justify-center space-x-32">
+    <div data-aos="fade-left" class="flex flex-col items-end space-y-8">
+      <div class="text-6xl">
+        👋 I am a
+      </div>
+      <p class="text-6xl">
+        <strong class="font-extrabold text-lightSecondary">Full Stack</strong> Developer
+      </p>
+      <div class="flex space-x-8">
+        <div *ngFor="let feature of data.features">
+          <span class="individual">&lt;{{feature}}/&gt;</span>
+        </div>
+      </div>
+    </div>
+
+    <div data-aos="zoom-in-left" class="flex-shrink-0 relative w-64 h-64">
+      <div class="w-full h-full -z-10 rounded-[3rem] absolute -top-5 -left-5 bg-lightSecondary -rotate-12"></div>
+      <div class="w-full h-full -z-10 rounded-[3rem] absolute top-5 left-5 border-4 border-lightAccent rotate-12"></div>
+      <img src="assets/my-photo.jpg" class="rounded-[3rem] shadow-lg shadow-[#00000060]" />
+    </div>
+  </div>
+
+</section>
+
+<section id="aboutme" class="relative w-full flex flex-col items-center">
+  <app-heading>About Me</app-heading>
+  <span data-aos="fade-up" class="text-center text-xl leading-[2.5] px-64">
+    <strong class="font-bold text-2xl">
+      I'm {{data.firstName + ' ' + data.lastName}}. A Full Stack JavaScript Developer.
+    </strong>
+    <br />
+    {{data.summary}}
+  </span>
+
+  <strong data-aos="fade-down" class="font-bold text-2xl mt-24 mb-16">
+    What Can I Do?
+  </strong>
+
+  <div class="flex flex-row flex-wrap justify-center">
+    <div *ngFor="let skill of data.skills;">
+      <div data-aos="zoom-in">
+        <app-skill [experience]="skill.experience" [name]="skill.name"></app-skill>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolios" class="w-full flex flex-col items-center bg-slate-100">
+  <app-heading>
+    Last Works
+  </app-heading>
+
+  <div class="w-full grid grid-cols-3 gap-8 px-16">
+    <div *ngFor="let p of data.portfolios">
+      <a [href]="p.link">
+        <img data-aos="zoom-in-up"
+          class="rounded-3xl hover:shadow-[0px_0px_10px_5px_#434BD920] hover:scale-[101%] transition-all duration-500 ease-out"
+          [src]="'assets/' + p.imgSrc" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="w-full flex flex-col items-center">
+  <app-heading>Services</app-heading>
+
+  <div class="w-full grid grid-cols-3 gap-x-8 px-32">
+    <div *ngFor="let service of data.services">
+      <app-service [title]="service.title" [imgSrc]="service.imgSrc">
+        {{service.comment}}
+      </app-service>
+    </div>
+  </div>
+
+</section>
+
+<section id="contact" class="w-full flex flex-row px-32 items-center bg-slate-100">
+  <img data-aos="zoom-in-right" src="assets/my-photo.jpg" class="rounded-[3rem] w-64 h-64 shadow-lg shadow-[#00000060]" />
+  <div data-aos="fade-right" class="flex flex-col ml-16 space-y-8">
+    <span class="text-3xl">
+      Interested in me?
+    </span>
+    <span class="text-2xl">
+      Email: <span class="font-semibold">{{data.email}}</span>
+    </span>
+    <span class="text-2xl">
+      Skype: <span class="font-semibold">{{data.skype}}</span>
+    </span>
+  </div>
+</section>
